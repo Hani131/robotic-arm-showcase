@@ -49,3 +49,4 @@ for(const btn of document.querySelectorAll('[data-spin]'))btn.addEventListener('
 const resize=()=>{for(const r of Object.values(records)){const w=r.host.clientWidth,h=r.host.clientHeight;r.camera.aspect=w/h;r.camera.updateProjectionMatrix();r.renderer.setSize(w,h)}};window.addEventListener('resize',resize);
 rendererLoop();function rendererLoop(){requestAnimationFrame(rendererLoop);for(const r of Object.values(records)){if(r.spinning&&r.mesh)r.mesh.rotation.y+=.008;r.controls.update();r.renderer.render(r.scene,r.camera)}}
 </script></body></html>
+
