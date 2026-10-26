@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a1424"><title>Robotic Arm | 3D Parts Explorer</title>
+<style>
+:root{color-scheme:dark;--bg:#08111f;--panel:#111f32;--line:#263b54;--mint:#64e0c5;--muted:#a8bbd1}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#173252 0,#08111f 58%);color:#f2f7ff;font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{width:min(1160px,92vw);margin:auto}header{padding:48px 0 26px}.eyebrow{color:var(--mint);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.04;letter-spacing:-.04em;margin:10px 0 14px}.lead{max-width:730px;color:var(--muted);margin:0}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.pill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:#d7e8fb;font-size:.84rem}.section{display:flex;justify-content:space-between;align-items:end;margin:20px 0}.section h2{margin:0;font-size:1.65rem}.section p{margin:4px 0 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding-bottom:40px}.card{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:linear-gradient(150deg,#152842,#0d1a2c);box-shadow:0 15px 35px #0003}.card.wide{grid-column:1/-1}.head{display:flex;align-items:center;gap:12px;padding:16px 18px 12px}.num{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border-radius:12px;background:#64e0c51b;color:var(--mint);font-weight:900}.head h3{margin:0;font-size:1.1rem}.head small{color:var(--muted)}.viewer{position:relative;height:330px;background:#0a1422}.card.wide .viewer{height:390px}canvas{display:block;width:100%;height:100%;outline:none}.status{position:absolute;left:12px;bottom:10px;max-width:calc(100% - 24px);padding:5px 9px;border-radius:8px;background:#07111fd9;color:#d8e8fa;font-size:.78rem;pointer-events:none}.controls{display:flex;gap:8px;flex-wrap:wrap;padding:12px 16px 16px}.controls button{border:1px solid #35516c;background:#192e46;color:#eef7ff;padding:8px 12px;border-radius:9px;cursor:pointer}.controls button:hover{border-color:var(--mint)}.tip{border:1px solid #64e0c54a;background:#64e0c50c;border-radius:14px;padding:15px 18px;margin:0 0 42px;color:#dceafa}.tip strong{color:var(--mint)}footer{border-top:1px solid var(--line);padding:22px 0 32px;color:var(--muted);font-size:.85rem}@media(max-width:720px){header{padding-top:32px}.grid{grid-template-columns:1fr}.card.wide{grid-column:auto}.viewer{height:300px}.card.wide .viewer{height:300px}.section{display:block}}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}</script>
+</head><body>
+<header class="wrap"><div class="eyebrow">Engineering design showcase</div><h1>Robotic Arm<br>3D Parts Explorer</h1><p class="lead">Explore each of the five CAD components separately. Drag to rotate, scroll or pinch to zoom, and use the reset button to return to the starting view.</p><div class="pills"><span class="pill">5 individual STL parts</span><span class="pill">Interactive 3D</span><span class="pill">Phone & desktop friendly</span></div></header>
+<main class="wrap"><div class="section"><div><h2>Explore the components</h2><p>Each viewer loads the real STL file you supplied.</p></div></div><section class="grid">
+<article class="card"><div class="head"><div class="num">01</div><div><h3>Base Component</h3><small>Base.stl</small></div></div><div class="viewer" id="view-base"><span class="status">Loading Base.stl…</span></div><div class="controls"><button data-reset="base">Reset view</button><button data-spin="base">Toggle rotation</button></div></article>
+<article class="card"><div class="head"><div class="num">02</div><div><h3>Link Arm 1</h3><small>Stick_One.stl</small></div></div><div class="viewer" id="view-stick-one"><span class="status">Loading Stick_One.stl…</span></div><div class="controls"><button data-reset="stick-one">Reset view</button><button data-spin="stick-one">Toggle rotation</button></div></article>
+<article class="card"><div class="head"><div class="num">03</div><div><h3>Bottom Joint</h3><small>Bottom_Joint.stl</small></div></div><div class="viewer" id="view-bottom-joint"><span class="status">Loading Bottom_Joint.stl…</span></div><div class="controls"><button data-reset="bottom-joint">Reset view</button><button data-spin="bottom-joint">Toggle rotation</button></div></article>
+<article class="card"><div class="head"><div class="num">04</div><div><h3>Link Arm 2</h3><small>Stick_Two.stl</small></div></div><div class="viewer" id="view-stick-two"><span class="status">Loading Stick_Two.stl…</span></div><div class="controls"><button data-reset="stick-two">Reset view</button><button data-spin="stick-two">Toggle rotation</button></div></article>
+<article class="card wide"><div class="head"><div class="num">05</div><div><h3>Top Joint</h3><small>Top_Joint.stl</small></div></div><div class="viewer" id="view-top-joint"><span class="status">Loading Top_Joint.stl…</span></div><div class="controls"><button data-reset="top-joint">Reset view</button><button data-spin="top-joint">Toggle rotation</button></div></article>
+</section><aside class="tip"><strong>How to use:</strong> Phone: drag to rotate and pinch to zoom. Computer: click-drag to rotate and scroll to zoom. If a model doesn't load, make sure the STL files remain beside index.html and the page is opened through a web host, not directly as a file.</aside></main><footer><div class="wrap">Robotic Arm CAD Showcase · Interactive STL viewers powered by Three.js.</div></footer>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+const parts=[
+ {key:'base',file:'Base.stl',id:'view-base',color:0x6fdac8},
+ {key:'stick-one',file:'Stick_One.stl',id:'view-stick-one',color:0x7cb8ff},
+ {key:'bottom-joint',file:'Bottom_Joint.stl',id:'view-bottom-joint',color:0xf2b66d},
+ {key:'stick-two',file:'Stick_Two.stl',id:'view-stick-two',color:0xa99bff},
+ {key:'top-joint',file:'Top_Joint.stl',id:'view-top-joint',color:0xff8f9a}
+];
+const records={};const loader=new STLLoader();
+for(const part of parts){
+ const host=document.getElementById(part.id);const status=host.querySelector('.status');
+ const scene=new THREE.Scene();scene.background=new THREE.Color(0x0a1422);
+ const camera=new THREE.PerspectiveCamera(42,host.clientWidth/host.clientHeight,.01,100000);camera.position.set(3,3,4);
+ const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.setSize(host.clientWidth,host.clientHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;host.appendChild(renderer.domElement);
+ scene.add(new THREE.HemisphereLight(0xdcecff,0x25344b,2.1));const key=new THREE.DirectionalLight(0xffffff,2.6);key.position.set(4,7,6);scene.add(key);const fill=new THREE.DirectionalLight(0x7bb9ff,1.2);fill.position.set(-5,2,-4);scene.add(fill);
+ const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.07;
+ const grid=new THREE.GridHelper(10,20,0x2b4663,0x1b3048);grid.position.y=-1;scene.add(grid);
+ const rec={scene,camera,renderer,controls,grid,host,spinning:false,part};records[part.key]=rec;
+ loader.load(part.file,geometry=>{
+  geometry.computeVertexNormals();geometry.computeBoundingBox();const box=geometry.boundingBox;const center=new THREE.Vector3();box.getCenter(center);geometry.translate(-center.x,-center.y,-center.z);
+  const material=new THREE.MeshStandardMaterial({color:part.color,metalness:.28,roughness:.38,side:THREE.DoubleSide});const mesh=new THREE.Mesh(geometry,material);scene.add(mesh);rec.mesh=mesh;
+  const size=new THREE.Vector3();box.getSize(size);const maxDim=Math.max(size.x,size.y,size.z,1);const fov=camera.fov*Math.PI/180;let distance=(maxDim/2)/Math.tan(fov/2)*1.7;camera.position.set(distance*.9,distance*.7,distance*1.1);camera.near=Math.max(maxDim/1000,.001);camera.far=maxDim*100;camera.updateProjectionMatrix();controls.target.set(0,0,0);controls.minDistance=maxDim*.25;controls.maxDistance=maxDim*10;controls.update();grid.scale.setScalar(Math.max(maxDim/5,.01));grid.position.y=-size.y*.65;
+  status.textContent='Loaded · Drag to rotate · Scroll/pinch to zoom';
+ },undefined,error=>{status.textContent='Could not load '+part.file+'. Keep this STL beside index.html and use a web host.';console.error(error)});
+}
+for(const btn of document.querySelectorAll('[data-reset]'))btn.addEventListener('click',()=>{const r=records[btn.dataset.reset];if(!r?.mesh)return;const b=r.mesh.geometry.boundingBox;const size=new THREE.Vector3();b.getSize(size);const d=Math.max(size.x,size.y,size.z,1)*2.2;r.camera.position.set(d*.9,d*.7,d*1.1);r.controls.target.set(0,0,0);r.controls.update();});
+for(const btn of document.querySelectorAll('[data-spin]'))btn.addEventListener('click',()=>{const r=records[btn.dataset.spin];if(r)r.spinning=!r.spinning;btn.textContent=r?.spinning?'Stop rotation':'Toggle rotation'});
+const resize=()=>{for(const r of Object.values(records)){const w=r.host.clientWidth,h=r.host.clientHeight;r.camera.aspect=w/h;r.camera.updateProjectionMatrix();r.renderer.setSize(w,h)}};window.addEventListener('resize',resize);
+rendererLoop();function rendererLoop(){requestAnimationFrame(rendererLoop);for(const r of Object.values(records)){if(r.spinning&&r.mesh)r.mesh.rotation.y+=.008;r.controls.update();r.renderer.render(r.scene,r.camera)}}
+</script></body></html>
